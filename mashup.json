@@ -1,0 +1,297 @@
+{
+  "id": "sigf/eldenkill",
+  "version": "0.1.0",
+  "name": "EldenKill",
+  "tagline": "ULTRAKILL inside Elden Ring: play V1 in the Lands Between, with ULTRAKILL's weapons and movement against Elden Ring's enemies and bosses (offline).",
+  "kind": "passthrough",
+  "games": [
+    {
+      "game": "eldenring",
+      "role": "host",
+      "label": "Elden Ring",
+      "engine": "Elden Ring (FromSoftware) + me3 native DLL (Rust)",
+      "apps": {
+        "steam": "1245620"
+      },
+      "runtime": "exe 2.7.1.0 only (fromsoftware-rs 59fbd3b)"
+    },
+    {
+      "game": "ultrakill",
+      "role": "guest",
+      "label": "ULTRAKILL",
+      "engine": "ULTRAKILL (Unity, Mono, x64) + BepInEx 5 plugin EldenKill.Guest (C#)",
+      "apps": {
+        "steam": "1229490"
+      },
+      "runtime": "current Steam build (upstream pins none)"
+    }
+  ],
+  "requires": [
+    {
+      "id": "me3",
+      "version": "0.13.0",
+      "license": "Apache-2.0; linked, the bat finds only its installer",
+      "page": "https://github.com/garyttierney/me3/releases/tag/v0.13.0",
+      "note": "install with me3_installer.exe (the launch file looks in %LOCALAPPDATA%\\Programs\\garyttierney\\me3\\bin, then PATH)"
+    },
+    {
+      "id": "bepinex",
+      "version": "5.4.23.5",
+      "license": "LGPL-2.1, shipped unchanged",
+      "page": "https://github.com/BepInEx/BepInEx/releases/tag/v5.4.23.5",
+      "note": "installed into the ULTRAKILL folder by the app",
+      "source": {
+        "url": "https://github.com/SIGFAI/eldenkill/releases/download/v0.1.0/BepInEx_win_x64_5.4.23.5.zip",
+        "sha256": "82f9878551030f54657792c0740d9d51a09500eeae1fba21106b0c441e6732c4"
+      }
+    }
+  ],
+  "install": [
+    {
+      "game": "eldenring",
+      "strategy": "profile",
+      "loader": "me3",
+      "files": [
+        {
+          "src": "EldenKill-0.1.0.zip",
+          "dst": "{app}",
+          "root": "EldenKill",
+          "unpack": true,
+          "contents": [
+            {
+              "path": "EldenKill/eldenkill.dll",
+              "sha256": "c3ecfdf75c33495ae3bfec678cc07020ebaea7503cf9375c9d00f74200ca16dc"
+            },
+            {
+              "path": "EldenKill/eldenkill.ini",
+              "sha256": "50719f2d94d41643fb8945387c1624eed0515d07f43c8a4c7ab13d10b433cdf6"
+            },
+            {
+              "path": "EldenKill/eldenkill.me3",
+              "sha256": "7caa6ed5c061c90eb20f26abc6f96ef45dec0fe3920f7e63f29a60a446047fa7"
+            },
+            {
+              "path": "EldenKill/launch-eldenkill.bat",
+              "sha256": "ad76ebf4ba2f4f913969c5b043a206b7901d22f71fa90a53e314cb49a91c6811"
+            },
+            {
+              "path": "EldenKill/practice-ultrakill.bat",
+              "sha256": "9a4707424a89a42061e699cebd4c973f09484494ea4c08c88b96126ee08b7bad"
+            },
+            {
+              "path": "EldenKill/README.md",
+              "sha256": "c87dcd5d05e6b190f370fb2c001ef1f755c941501eda90a2de2de72c1e30c202"
+            },
+            {
+              "path": "EldenKill/ULTRAKILL-plugin/EldenKill.Guest.dll",
+              "sha256": "7b4ff77b2b5c23879acda2dc19b9b4cb67a4aab4b52ad562d25d04852e79e863"
+            }
+          ],
+          "url": "https://github.com/FFwLo/EldenKill/releases/download/v0.1.0/EldenKill-0.1.0.zip",
+          "sha256": "0c4ab9e313af36c9985638527f1880656d14d45f46c8461645b3223cfac89fcc",
+          "size": 797395
+        }
+      ]
+    },
+    {
+      "game": "ultrakill",
+      "strategy": "game-dir-snapshot",
+      "loader": "bepinex",
+      "files": [
+        {
+          "src": "BepInEx_win_x64_5.4.23.5.zip",
+          "dst": "{game}",
+          "unpack": true,
+          "contents": [
+            {
+              "path": ".doorstop_version",
+              "sha256": "75a2f501000d4fe28f74bc7ee66dae5581959d28b6c44f0c1b0c05cd5ba261e6"
+            },
+            {
+              "path": "changelog.txt",
+              "sha256": "b184d858cb0ff6614ca8ce0247fb0d186cabc91ed7e4d4d9d57ea3d744ce98b5"
+            },
+            {
+              "path": "doorstop_config.ini",
+              "sha256": "4d5c6dfa0f771c6a5b1b0c559aca0bd0ece7d08b08fff894708dc3b73ce73cfc"
+            },
+            {
+              "path": "winhttp.dll",
+              "sha256": "8c6cdbc38836dee87e3368f5de1994d7c0ccebf29e4ce7aba3c0981f9375412c"
+            },
+            {
+              "path": "BepInEx/core/0Harmony.dll",
+              "sha256": "1a21cc03424fc82c3dd1346905d16494536b9595ae4162228d99fb7c285c1031"
+            },
+            {
+              "path": "BepInEx/core/0Harmony.xml",
+              "sha256": "d1f02fc3ada3a13da307de421225bfe56ebe24064370980979391c4be021672f"
+            },
+            {
+              "path": "BepInEx/core/0Harmony20.dll",
+              "sha256": "c755a5ab2712915a32f9a850d580a8c1b70ff1653bc76600f2767aa8ffccc663"
+            },
+            {
+              "path": "BepInEx/core/BepInEx.dll",
+              "sha256": "8255b28902886085c578b9e427d3073c97002db85176d2090cdeda90ef14ce70"
+            },
+            {
+              "path": "BepInEx/core/BepInEx.Harmony.dll",
+              "sha256": "00c8f2ac48593e4d45ce4eb26ce4e68b18113c5c489b38b8bf0850f65830d601"
+            },
+            {
+              "path": "BepInEx/core/BepInEx.Harmony.xml",
+              "sha256": "a04fedf08f7c81f5d01aba6f2840a7ffce50b79bbd24587d8dbe69ab73971d29"
+            },
+            {
+              "path": "BepInEx/core/BepInEx.Preloader.dll",
+              "sha256": "55d3895351a9d16b63b6f35f1c01b44ac650979e853d0bd3a442b92a082af64f"
+            },
+            {
+              "path": "BepInEx/core/BepInEx.Preloader.xml",
+              "sha256": "33275b2783b7b99495a02c098ee86d6a9a2783e884a5c9369021f20c94cf99e7"
+            },
+            {
+              "path": "BepInEx/core/BepInEx.xml",
+              "sha256": "7ba2266061b9f8a9f146218a312bfdd0d7f2b53a99a7e66c957215c6b66ca0d7"
+            },
+            {
+              "path": "BepInEx/core/HarmonyXInterop.dll",
+              "sha256": "7ce1342d3afa0334b59a3e38c0aed15e162b9abe9d46f95f34be44af47f3b493"
+            },
+            {
+              "path": "BepInEx/core/Mono.Cecil.dll",
+              "sha256": "7ae470288fff4a402899c254d0a76cefef55877f5c54f96e83c797cc5bb6e2f6"
+            },
+            {
+              "path": "BepInEx/core/Mono.Cecil.Mdb.dll",
+              "sha256": "5896d1898f616701fff18f3b2c71e6b844d2390ef9f41e1c5fccce8cb27c698e"
+            },
+            {
+              "path": "BepInEx/core/Mono.Cecil.Pdb.dll",
+              "sha256": "174db44a067f58561510af746f3caeb032037762c57a31c8d9ee32db25174984"
+            },
+            {
+              "path": "BepInEx/core/Mono.Cecil.Rocks.dll",
+              "sha256": "54ac539fb5ddc8b44c0e9acd0fcb7324f89d1a072edf8ebc1b06dd691e3d3927"
+            },
+            {
+              "path": "BepInEx/core/MonoMod.RuntimeDetour.dll",
+              "sha256": "40e49bb314391cd7bddc2644f8553eeba92c194b940836b103df16955c464e0c"
+            },
+            {
+              "path": "BepInEx/core/MonoMod.RuntimeDetour.xml",
+              "sha256": "54887808960d156550b37d602d08847607aa9e908d039f2765fb0b5e79394aa4"
+            },
+            {
+              "path": "BepInEx/core/MonoMod.Utils.dll",
+              "sha256": "9d1495f147ac93c4f81f84538c1a326e8f8a6aefc78d6289d798f3ce1162c5e9"
+            },
+            {
+              "path": "BepInEx/core/MonoMod.Utils.xml",
+              "sha256": "0577b362023a3432d6e8d7934c5eddc3e08fdbb19e191af083e341562c5ede38"
+            }
+          ],
+          "url": "https://github.com/SIGFAI/eldenkill/releases/download/v0.1.0/BepInEx_win_x64_5.4.23.5.zip",
+          "sha256": "82f9878551030f54657792c0740d9d51a09500eeae1fba21106b0c441e6732c4",
+          "size": 639118
+        },
+        {
+          "src": "EldenKill-0.1.0.zip",
+          "dst": "{game}/BepInEx/plugins/EldenKill",
+          "root": "EldenKill/ULTRAKILL-plugin",
+          "unpack": true,
+          "contents": [
+            {
+              "path": "EldenKill/eldenkill.dll",
+              "sha256": "c3ecfdf75c33495ae3bfec678cc07020ebaea7503cf9375c9d00f74200ca16dc"
+            },
+            {
+              "path": "EldenKill/eldenkill.ini",
+              "sha256": "50719f2d94d41643fb8945387c1624eed0515d07f43c8a4c7ab13d10b433cdf6"
+            },
+            {
+              "path": "EldenKill/eldenkill.me3",
+              "sha256": "7caa6ed5c061c90eb20f26abc6f96ef45dec0fe3920f7e63f29a60a446047fa7"
+            },
+            {
+              "path": "EldenKill/launch-eldenkill.bat",
+              "sha256": "ad76ebf4ba2f4f913969c5b043a206b7901d22f71fa90a53e314cb49a91c6811"
+            },
+            {
+              "path": "EldenKill/practice-ultrakill.bat",
+              "sha256": "9a4707424a89a42061e699cebd4c973f09484494ea4c08c88b96126ee08b7bad"
+            },
+            {
+              "path": "EldenKill/README.md",
+              "sha256": "c87dcd5d05e6b190f370fb2c001ef1f755c941501eda90a2de2de72c1e30c202"
+            },
+            {
+              "path": "EldenKill/ULTRAKILL-plugin/EldenKill.Guest.dll",
+              "sha256": "7b4ff77b2b5c23879acda2dc19b9b4cb67a4aab4b52ad562d25d04852e79e863"
+            }
+          ],
+          "url": "https://github.com/FFwLo/EldenKill/releases/download/v0.1.0/EldenKill-0.1.0.zip",
+          "sha256": "0c4ab9e313af36c9985638527f1880656d14d45f46c8461645b3223cfac89fcc",
+          "size": 797395
+        }
+      ]
+    }
+  ],
+  "launch": [],
+  "files": [
+    {
+      "name": "BepInEx_win_x64_5.4.23.5.zip",
+      "url": "https://github.com/SIGFAI/eldenkill/releases/download/v0.1.0/BepInEx_win_x64_5.4.23.5.zip",
+      "sha256": "82f9878551030f54657792c0740d9d51a09500eeae1fba21106b0c441e6732c4",
+      "size": 639118
+    },
+    {
+      "name": "EldenKill-0.1.0.zip",
+      "url": "https://github.com/FFwLo/EldenKill/releases/download/v0.1.0/EldenKill-0.1.0.zip",
+      "sha256": "0c4ab9e313af36c9985638527f1880656d14d45f46c8461645b3223cfac89fcc",
+      "size": 797395
+    }
+  ],
+  "source": {
+    "repo": "https://github.com/FFwLo/EldenKill",
+    "license": "No license (upstream file) + LGPL-2.1",
+    "upstream_license": null,
+    "fetch": "upstream",
+    "tag": "v0.1.0",
+    "commit": "a159cd1f9f094c74206826e5f5f8c310d393c557",
+    "hosted": "https://github.com/SIGFAI/eldenkill",
+    "release_commit": null,
+    "release_note": "release published 2026-10-05T02:24Z, before the only commit (11:59Z) the tag now points at; eldenkill.me3 differs from the repo",
+    "bundled": [
+      {
+        "name": "BepInEx",
+        "version": "5.4.23.5",
+        "repo": "https://github.com/BepInEx/BepInEx",
+        "commit": "57f1fb859bd4d0264cd2a59074d0e96c6a492a33",
+        "license": "LGPL-2.1"
+      }
+    ]
+  },
+  "media": {},
+  "built_by": {
+    "author": "FFwLo",
+    "authors": [
+      "FFwLo"
+    ],
+    "packaged_by": "SIGF"
+  },
+  "idea_by": "FFwLo",
+  "built_at": "2026-10-05T00:00:00.000Z",
+  "status": "beta",
+  "issues": "https://github.com/FFwLo/EldenKill/issues",
+  "notes": [
+    "You need both games on Steam: Elden Ring (exe 2.7.1.0) and ULTRAKILL. Windows only, offline only. 16 GB of RAM stutters: two games run at once.",
+    "Install me3 0.13.0 first with its me3_installer.exe (https://github.com/garyttierney/me3/releases/tag/v0.13.0).",
+    "To play, run launch-eldenkill.bat in the mashup's profile folder (%LOCALAPPDATA%\\SIGF\\profiles\\sigf-eldenkill\\eldenring), not as admin. It starts Elden Ring through me3, offline with Easy Anti-Cheat off and Elden Ring's Arxan anti-tamper off (--disable-arxan, so the frame-rate and ultrawide patches hold), on its own save file EldenKill.sl2: your normal save is never touched. The Play button does not start it.",
+    "Elden Ring then starts ULTRAKILL by itself, hidden. If ULTRAKILL is not in C:\\Program Files (x86)\\Steam or D:\\SteamLibrary, set \"ultrakill = <your ULTRAKILL folder>\\ULTRAKILL.exe\" in eldenkill.ini in the same profile folder.",
+    "BepInEx 5.4.23.5 and the EldenKill plugin are installed into the ULTRAKILL folder, the EldenKill files into the profile folder; Restore removes both. The EldenKill.sl2 save me3 writes is yours and stays.",
+    "Release caveat: the author's v0.1.0 zip was published before the repo's only commit, so it cannot be tied to an exact commit (its eldenkill.me3 also differs from the repo's). SIGF scanned it with Windows Defender (clean) and reviewed the source; it is downloaded from the author's release as released.",
+    "Work in progress (author): you may fall through the map, hit invisible walls or get stuck, and some enemies do not react to hits. Report bugs to the author on the upstream issue tracker."
+  ]
+}
