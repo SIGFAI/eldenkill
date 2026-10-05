@@ -286,12 +286,11 @@
   "status": "beta",
   "issues": "https://github.com/FFwLo/EldenKill/issues",
   "notes": [
-    "You need both games on Steam: Elden Ring (exe 2.7.1.0) and ULTRAKILL. Windows only, offline only. 16 GB of RAM stutters: two games run at once.",
-    "Install me3 0.13.0 first with its me3_installer.exe (https://github.com/garyttierney/me3/releases/tag/v0.13.0).",
-    "To play, run launch-eldenkill.bat in the mashup's profile folder (%LOCALAPPDATA%\\SIGF\\profiles\\sigf-eldenkill\\eldenring), not as admin. It starts Elden Ring through me3, offline with Easy Anti-Cheat off and Elden Ring's Arxan anti-tamper off (--disable-arxan, so the frame-rate and ultrawide patches hold), on its own save file EldenKill.sl2: your normal save is never touched. The Play button does not start it.",
-    "Elden Ring then starts ULTRAKILL by itself, hidden. If ULTRAKILL is not in C:\\Program Files (x86)\\Steam or D:\\SteamLibrary, set \"ultrakill = <your ULTRAKILL folder>\\ULTRAKILL.exe\" in eldenkill.ini in the same profile folder.",
-    "BepInEx 5.4.23.5 and the EldenKill plugin are installed into the ULTRAKILL folder, the EldenKill files into the profile folder; Restore removes both. The EldenKill.sl2 save me3 writes is yours and stays.",
-    "Release caveat: the author's v0.1.0 zip was published before the repo's only commit, so it cannot be tied to an exact commit (its eldenkill.me3 also differs from the repo's). SIGF scanned it with Windows Defender (clean) and reviewed the source; it is downloaded from the author's release as released.",
-    "Work in progress (author): you may fall through the map, hit invisible walls or get stuck, and some enemies do not react to hits. Report bugs to the author on the upstream issue tracker."
+    "How it works: you play Elden Ring as V1 from ULTRAKILL. A real ULTRAKILL runs hidden and gives you its movement and weapons (dashes, slides, whiplash, coins, rockets, parries, style meter) against Elden Ring's enemies and bosses, offline.",
+    "The Play button does not start it: run launch-eldenkill.bat in %LOCALAPPDATA%\\SIGF\\profiles\\sigf-eldenkill\\eldenring, not as admin. Elden Ring starts offline (Easy Anti-Cheat off) and starts ULTRAKILL by itself, hidden. Load a character: once the floor has loaded, V1 takes over.",
+    "Keys: ULTRAKILL's own (WASD, Space, Shift dash, Ctrl slide, mouse aim and shoot, 1-5 weapons, F punch, R whiplash), plus E to interact (doors, graces, items, NPCs), Esc Elden Ring's menu, F1 ULTRAKILL's options, F9 V1 off/on, F7 unstick V1.",
+    "You need Elden Ring (exe 2.7.1.0) and ULTRAKILL, both on Steam, Windows only, and me3 0.13.0 installed with its me3_installer.exe. If ULTRAKILL is not in the default Steam folder, D:\\SteamLibrary or Desktop\\ULTRAKILL, set \"ultrakill = <path>\\ULTRAKILL.exe\" in eldenkill.ini in the profile folder.",
+    "Offline only, never online: Elden Ring's anti-tamper is turned off too. Its own save EldenKill.sl2 keeps your normal save untouched (copy ER0000.sl2 to EldenKill.sl2 in %APPDATA%\\EldenRing\\<id> to bring a character); Restore leaves it. 16 GB of RAM stutters: two games run at once.",
+    "Work in progress: you may fall through the map, hit invisible walls or get stuck; enemies do not flinch and big bosses hit very hard. The release zip is not tied to an exact commit (SIGF scanned and reviewed it). Report bugs to the author with eldenkill.log; F6 saves a snapshot of your spot."
   ]
 }
