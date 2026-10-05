@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "name": "EldenKill",
   "tagline": "ULTRAKILL inside Elden Ring: play V1 in the Lands Between, with ULTRAKILL's weapons and movement against Elden Ring's enemies and bosses (offline).",
+  "how_to_play": [
+    "Play Elden Ring as V1 from ULTRAKILL, with its dashes, slides, whiplash, coins, rockets and parries against Elden Ring's bosses.",
+    "Start it with launch-eldenkill.bat in the sigf-eldenkill profile's eldenring folder (not as admin), then load a character.",
+    "Use ULTRAKILL's keys: WASD, Space, Shift dash, Ctrl slide, mouse aim and shoot, 1-5 weapons, F punch, R whiplash.",
+    "Press E to interact with doors, graces, items and NPCs; Esc opens Elden Ring's menu, F1 ULTRAKILL's options.",
+    "F9 turns V1 off and on, F7 unsticks V1."
+  ],
   "kind": "passthrough",
   "games": [
     {
