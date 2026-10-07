@@ -5,7 +5,7 @@
   "tagline": "ULTRAKILL inside Elden Ring: play V1 in the Lands Between, with ULTRAKILL's weapons and movement against Elden Ring's enemies and bosses (offline).",
   "how_to_play": [
     "Play Elden Ring as V1: a hidden ULTRAKILL gives you its dashes, slides, whiplash, coins, rockets, parries and style meter against Elden Ring's bosses.",
-    "The Play button does not start it: run launch-eldenkill.bat in %LOCALAPPDATA%\\SIGF\\profiles\\sigf-eldenkill\\eldenring, not as admin.",
+    "Press Play. On an older SIGF app, run launch-eldenkill.bat in %LOCALAPPDATA%\\SIGF\\profiles\\sigf-eldenkill\\eldenring instead, not as admin.",
     "Elden Ring starts offline (Easy Anti-Cheat off) and starts ULTRAKILL by itself, hidden. Load a character: once the floor has loaded, V1 takes over.",
     "ULTRAKILL's keys: WASD, Space, Shift dash, Ctrl slide, mouse aim and shoot, 1-5 weapons, F punch, R whiplash.",
     "E interacts (doors, graces, items, NPCs), Esc Elden Ring's menu, F1 ULTRAKILL's options, F9 V1 off/on, F7 unstick V1."
@@ -39,12 +39,12 @@
       "version": "0.13.0",
       "license": "Apache-2.0; linked, the bat finds only its installer",
       "page": "https://github.com/garyttierney/me3/releases/tag/v0.13.0",
-      "note": "install with me3_installer.exe (the launch file looks in %LOCALAPPDATA%\\Programs\\garyttierney\\me3\\bin, then PATH)"
+      "note": "install with me3_installer.exe: Play (and launch-eldenkill.bat) look in %LOCALAPPDATA%\\Programs\\garyttierney\\me3\\bin"
     },
     {
       "id": "bepinex",
       "version": "5.4.23.5",
-      "license": "LGPL-2.1, shipped unchanged",
+      "license": "MIT AND LGPL-2.1, shipped unchanged",
       "page": "https://github.com/BepInEx/BepInEx/releases/tag/v5.4.23.5",
       "note": "installed into the ULTRAKILL folder by the app",
       "source": {
@@ -245,7 +245,16 @@
       ]
     }
   ],
-  "launch": [],
+  "launch": [
+    {
+      "game": "eldenring",
+      "me3": {
+        "profile": "{app}/eldenkill.me3",
+        "savefile": "EldenKill.sl2",
+        "disable_arxan": true
+      }
+    }
+  ],
   "files": [
     {
       "name": "BepInEx_win_x64_5.4.23.5.zip",
@@ -276,7 +285,7 @@
         "version": "5.4.23.5",
         "repo": "https://github.com/BepInEx/BepInEx",
         "commit": "57f1fb859bd4d0264cd2a59074d0e96c6a492a33",
-        "license": "LGPL-2.1"
+        "license": "MIT AND LGPL-2.1"
       }
     ]
   },
